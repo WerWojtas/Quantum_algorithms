@@ -35,3 +35,6 @@ def Grovers_algorithm(number_of_qubits):
   sim = Aer.get_backend('aer_simulator')
   t_qc = transpile(qc, sim)
   sim.run(t_qc).result().get_counts()
+
+Grovers_algorithm(7)
+
