@@ -23,15 +23,15 @@ save_to_dimacs("formula.dimacs", sat_problem,7,len(sat_problem)
 
 def Grovers_algorithm(number_of_qubits):
   oracle = PhaseOracle.from_dimacs_file('formula.dimacs')
-  init = QuantumCircuit(number_of_qubits)
+  circuit = QuantumCircuit(number_of_qubits)
   for i in range(number_of_qubits):
-    init.h(i)
-  grover_operator = GroverOperator(oracle)
-  qc = init.compose(grover_operator)
+    circuit.h(i)
+  grover = GroverOperator(oracle)
+  qc = circut.compose(grover_operator)
   qc.measure_all()
   sim = Aer.get_backend('aer_simulator')
-  t_qc = transpile(qc, sim)
-  sim.run(t_qc).result().get_counts()
+  transpile_qc = transpile(qc, sim)
+  sim.run(transpile_qc).result().get_counts()
 
 Grovers_algorithm(7)
 
