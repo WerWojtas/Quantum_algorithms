@@ -27,7 +27,7 @@ def Grovers_algorithm(number_of_qubits):
   for i in range(number_of_qubits):
     circuit.h(i)
   grover = GroverOperator(oracle)
-  qc = circut.compose(grover_operator)
+  qc = circuit.compose(grover_operator)
   qc.measure_all()
   sim = Aer.get_backend('aer_simulator')
   transpile_qc = transpile(qc, sim)
